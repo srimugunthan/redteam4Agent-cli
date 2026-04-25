@@ -2,6 +2,94 @@
 
 ---
 
+## DD-13: Orchestration — LangGraph adopted from Phase 3 (supersedes DD-01)
+
+**Decision:** Introduce LangGraph at Phase 3 (orchestrator phase), not Phase 4. The asyncio-first plan in DD-01 is reversed given that 75% of campaigns will have 3+ LLM nodes in a stateful cycle from early on. The 25% static case is handled as a degenerate LangGraph graph path.
+
+**What changed from DD-01:**
+
+DD-01's deferral argument rested on a single assumption: the attack executor node makes no LLM calls — the orchestrator is simple, only the judge is LLM-driven. That assumption was valid for a static attack library.
+
+With a dynamic LLM attack generator as the default mode, the node profile changes:
+
+| Node | DD-01 assumption | Actual (revised) |
+|---|---|---|
+| Attack generator | No — static plugin | **Yes (75%) / No (25%)** |
+| Agent call | No | No (target is LLM, not orchestrator) |
+| Judge | Optional | Yes (assumed) |
+| Mutation engine | Optional | Yes — LLM-driven |
+| Turn driver (multi-turn) | Not considered | Yes — LLM-driven adaptive |
+
+At 75%, three or more LLM-calling nodes in a stateful cycle is the **default operating mode**, not a Phase 4 upgrade. The original deferral calculus does not apply.
+
+**Tradeoff analysis:**
+
+*State management:*
+asyncio passes state as function arguments — workable for two nodes, messy for four. As conversation history, mutation history, session_id, and turn sequences accumulate, every developer invents their own state-threading pattern. LangGraph's `TypedDict` state makes all inter-node state explicit, typed, and centrally versioned:
+
+```python
+class AttackState(TypedDict):
+    current_payload: AttackPayload
+    conversation_history: List[Tuple[str, AgentResponse]]
+    verdict: Optional[JudgeVerdict]
+    attack_queue: List[AttackPayload]
+    mutation_count: int
+```
+
+*Crash recovery:*
+The asyncio + SQLite plan (DD-08) flushes results after each completed attack. A crash mid-attack (between the attack generator and the agent call, after API spend) restarts the whole attack. LangGraph's checkpointer is node-level — the graph resumes from the last completed node. At 75% LLM usage with expensive API calls per node, this is a meaningful cost and UX difference.
+
+*Multi-turn conversation state:*
+asyncio requires hand-rolling session_id tracking, conversation history accumulation, and turn sequencing (the `ConversationStrategy` abstraction identified separately). LangGraph with thread_id and a checkpointer treats conversation state as graph state natively — resume a thread, branch a conversation, inspect history. This maps directly onto Category I multi-turn attacks.
+
+*Control flow visibility:*
+The asyncio mutation-and-requeue loop looks clean at two nodes. Add adaptive multi-turn (inner loop), MCTS branching, conditional re-attack on partial success, and the 25% short-circuit path — the control flow becomes implicit `if/else` logic embedded in the orchestrator. LangGraph expresses the same logic as explicit, inspectable conditional edges:
+
+```
+attack_generator → executor → judge ─┬─► mutator → attack_generator  (fail, mutate)
+                                      ├─► next_attack               (fail, exhausted)
+                                      └─► done                      (success)
+```
+
+*The 25% static case:*
+Static attacks (no LLM attack generator) run as a degenerate LangGraph graph — the attack_generator node is a passthrough that returns a pre-defined payload with zero LLM calls. Same code path, same graph structure, no extra overhead beyond framework initialisation. This is not a reason to maintain a separate asyncio implementation.
+
+*The "build asyncio first, swap later" cost:*
+DD-01 planned: build asyncio → clean `Orchestrator` ABC → swap to LangGraph in Phase 4. At 75% LLM node usage as the default, this means building state management, `ConversationStrategy`, and mutation loops in asyncio — then rewriting them in LangGraph, retesting everything, and communicating breaking changes to plugin developers. The `Orchestrator` ABC reduces blast radius but does not eliminate it. At 75%, building asyncio first is building the wrong thing for the dominant use case.
+
+*Dependency risk:*
+This is the strongest argument for asyncio. LangGraph adds `langgraph` and `langchain-core` as required dependencies for all users, including the 25% running static campaigns. LangGraph had API churn between 0.x versions. Mitigation: pin `langgraph>=1.0,<2.0` and treat upgrades as deliberate decisions. LangGraph 1.x has stabilised; the main breaking-change period is past. Risk is moderate and manageable, not a veto.
+
+| Factor | asyncio | LangGraph | Winner at 75% LLM |
+|---|---|---|---|
+| State management | Manual, grows messy | Typed, explicit | LangGraph |
+| Crash recovery | Attack-level granularity | Node-level granularity | LangGraph |
+| Multi-turn state | Hand-rolled | Native (thread + checkpointer) | LangGraph |
+| Control flow visibility | Implicit if/else | Explicit graph edges | LangGraph |
+| 25% static case | Natural fit | Degenerate graph, minimal overhead | asyncio |
+| Dependencies | Minimal | Adds langgraph + langchain-core | asyncio |
+| Build-then-swap cost | High at 75% | No swap needed | LangGraph |
+| Learning curve | Low | Moderate | asyncio |
+
+**Decision:**
+- Phase 1–2: asyncio throughout. Adapters, plugin system, judge engine are standalone components with no orchestration dependency — build them simply.
+- **Phase 3: Build the orchestrator as a LangGraph `StateGraph` from day one.** Do not build an asyncio orchestrator first.
+- The `Orchestrator` ABC boundary from DD-01 is retained — it now wraps a LangGraph graph, not an asyncio loop. Plugin developers program against `AttackPlugin.execute()` and `AgentInterface` — neither changes.
+- The 25% static case is a degenerate graph (passthrough attack_generator node). No separate implementation.
+- MCTS (`MCTSStrategy`, previously Phase 3/4) is a natural fit for LangGraph branching — schedule it for Phase 4 alongside LLM-driven mutation.
+
+**What is removed from DD-01:**
+- The asyncio orchestrator implementation plan.
+- The "introduce LangGraph in Phase 4" migration step.
+- The two-implementation maintenance burden.
+
+**What is kept from DD-01:**
+- LangGraph is still not introduced in Phase 1–2.
+- The `Orchestrator` ABC boundary so adapters and plugins remain decoupled from orchestration internals.
+- asyncio is used freely inside individual nodes (adapter calls, judge calls) — LangGraph does not replace asyncio, it organises the nodes.
+
+---
+
 ## DD-12: Multi-Agent Attacks (D-category) — deferred to future version
 
 **Decision:** D-category attacks (orchestrator hijacking, sub-agent impersonation, trust escalation, circular delegation) are deferred. Not in scope for Phase 1 or Phase 2.
