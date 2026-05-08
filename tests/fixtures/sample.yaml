@@ -1,0 +1,26 @@
+name: "Sample Red Team Campaign"
+version: "1.0"
+
+target:
+  type: rest
+  endpoint: http://localhost:9000/invoke
+
+judge:
+  provider: anthropic
+  model: claude-sonnet-4-6
+  temperature: 0.0
+
+generator:
+  strategy: static
+
+execution:
+  mode: sequential
+  mutation_count: 0
+
+attacks:
+  categories:
+    - A
+
+reporting:
+  formats: [json]
+  output_dir: ./reports/

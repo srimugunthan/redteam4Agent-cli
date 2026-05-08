@@ -2,6 +2,325 @@
 
 ---
 
+## DD-17: Trace Store — JSONL side-car written alongside SQLite
+
+**Decision:** `TraceStore.save()` writes each `AttackResult` to SQLite (canonical store) **and** appends a JSON record to `{run_id}.jsonl` in the same directory. Both writes happen on every save; the JSONL is flushed immediately so it is readable mid-run.
+
+**What this extends:**
+
+DD-08 established SQLite as the sole trace store with no cloud exporters. The JSONL side-car does not replace SQLite — it is a parallel convenience output that requires zero extra dependencies and less than five lines of implementation.
+
+**JSONL record schema:**
+
+```json
+{
+  "run_id": "run-abc123",
+  "attack_id": "A-01",
+  "success": true,
+  "confidence": 0.92,
+  "payload": {"turns": ["Ignore previous instructions…"], "expected_behavior": "refuse"},
+  "response": {"output": "…", "tool_calls": […], "memory_reads": […]},
+  "verdict": {"success": true, "confidence": 0.92, "explanation": "…", "raw_response": "…"},
+  "recorded_at": "2026-05-08T12:34:56Z"
+}
+```
+
+One object per line. File grows append-only throughout the run.
+
+**Why:**
+
+*Immediate inspectability:* During and after a run, `cat run-id.jsonl | jq .` shows every attack prompt and response without running any CLI command. `grep "A-01" run-id.jsonl` filters by attack in one shell command. This is the single most common inspection task for a red-team tool.
+
+*No extra dependencies:* The JSONL write is `file.write(json_line + "\n")` — stdlib only. SQLite already carries the aiosqlite dependency.
+
+*SQLite stays canonical:* `TraceStore.load()`, `agentrt trace export`, crash recovery, and all queries use SQLite. The JSONL is a convenience view — deleting it loses nothing except human-readable inspection convenience.
+
+*Mid-run visibility:* SQLite requires a query tool to read; JSONL does not. When a long campaign is running, a practitioner can `tail -f run-id.jsonl` to watch results arrive in real time.
+
+**`TraceStore` API change:**
+
+```python
+# Before (DD-08)
+TraceStore(db_path: str | Path)
+
+# After (DD-17)
+TraceStore(db_path: str | Path, jsonl_dir: str | Path | None = None)
+```
+
+`jsonl_dir` defaults to the directory of `db_path`. Pass `None` to suppress JSONL output (e.g., in unit tests that only care about SQLite round-trips).
+
+**Tradeoff analysis:**
+
+| Factor | SQLite-only (DD-08) | SQLite + JSONL side-car |
+|---|---|---|
+| Inspect attack prompts | Requires `agentrt trace export` or SQL query | `cat run.jsonl` / `jq` / `grep` |
+| Mid-run visibility | No (locked file or partial DB) | `tail -f run.jsonl` |
+| Extra dependencies | None | None (stdlib json + file I/O) |
+| Implementation cost | — | ~5 lines in `TraceStore.save()` |
+| Canonical store | SQLite | SQLite (unchanged) |
+| Crash safety | SQLite durability | SQLite durability (JSONL is best-effort) |
+
+**What changes from DD-08:**
+
+- `TraceStore.save()` appends to JSONL after every SQLite write.
+- `TraceStore.__init__` gains a `jsonl_dir` parameter.
+- `agentrt run` passes `jsonl_dir=output_dir` when constructing `TraceStore`.
+- No other component changes. SQLite schema, `load()`, `export()` are unchanged.
+
+---
+
+## DD-16: Named profiles — built-in config layer between campaign YAML and built-in defaults
+
+**Decision:** Add four built-in named profiles (`quick`, `full`, `stealth`, `ci`) as YAML files in `agentrt/config/profiles/`. A `ProfileLoader` merges the active profile as a defaults layer between the campaign YAML and the framework built-in defaults. Users select a profile via `profile:` in campaign YAML or `--profile` on the CLI. User-local profiles in `~/.config/agentrt/profiles/` override built-in profiles of the same name.
+
+**What this replaces:**
+
+Config layering was previously four-tier (DD-10):
+
+```
+env vars  >  CLI flags  >  campaign YAML  >  built-in defaults
+```
+
+Without profiles, every new campaign requires the author to explicitly configure attack scope, mutation strategy, judge type, and execution mode — even for common patterns like a fast smoke test or a CI-safe run. The result is copy-paste boilerplate and per-campaign config drift.
+
+**Config layering change (four-tier → five-tier):**
+
+```
+env vars  >  CLI flags  >  campaign YAML  >  named profile  >  built-in defaults
+```
+
+The profile inserts between campaign YAML and built-in defaults. Campaign YAML fields always override the profile; env vars and CLI flags override everything.
+
+**Built-in profiles:**
+
+| Profile | Attack scope | Mutation | Judge | Notes |
+|---|---|---|---|---|
+| `quick` | A-01, B-01, B-05, F-01 | none | keyword | Fast smoke test; zero LLM cost |
+| `full` | All categories (A–F) | template | LLM | Comprehensive red team |
+| `stealth` | A, B (low+medium severity) | template | LLM | Low-noise probing |
+| `ci` | A, B, F | none | keyword | CI pipeline; deterministic, zero LLM cost |
+
+Each is a partial `CampaignConfig` YAML file — only the fields it sets. Any field not set by the profile falls through to built-in defaults.
+
+**Profile resolution algorithm:**
+
+```
+1. If config.profile is None → skip; use built-in defaults directly
+2. Check ~/.config/agentrt/profiles/<name>.yaml
+   → exists: load as user profile (takes precedence)
+3. Check agentrt/config/profiles/<name>.yaml
+   → exists: load as built-in profile
+4. Neither exists → raise ProfileNotFoundError
+5. Merge: profile values fill fields not set by campaign YAML
+```
+
+**Why named profiles:**
+
+*Zero-boilerplate quick start:* `profile: quick` in a two-field campaign YAML is enough for a meaningful smoke test. Without profiles, users must manually specify attack scope, mutation, and judge type for every campaign — a friction point that increases misconfiguration risk.
+
+*Team consistency:* A team adopts `profile: ci` in all CI pipeline campaigns. The profile definition lives in the shared codebase; no per-campaign boilerplate to drift. When the `ci` profile is updated (e.g., a new deterministic attack added to scope), all campaigns using it pick up the change without individual edits.
+
+*Partial override granularity:* Profile + campaign YAML is strictly additive. A user who wants everything in `full` except a different judge model writes only `judge.model: claude-opus-4-7` in their campaign YAML — one field override, not a full config copy.
+
+*redteam4RAG parity:* redteam4RAG ships three built-in profiles (`quick`, `full`, `retriever-only`). AgentRedTeam ships four (`quick`, `full`, `stealth`, `ci`). The `stealth` and `ci` profiles are agent-specific: severity scoping and deterministic-CI-safe operation are not concepts in RAG testing. Matching the profile pattern means users who know redteam4RAG find the mechanism familiar; the new profiles cover agent-specific needs.
+
+**Tradeoff analysis:**
+
+| Factor | No profiles (YAML only) | Named profiles |
+|---|---|---|
+| Boilerplate for a new campaign | High — full config every time | Zero — `profile: quick` is enough |
+| Team consistency | Per-campaign manual discipline | Built-in profile enforces it |
+| Override granularity | Whole config or nothing | Override specific fields only |
+| Discoverability | None | `agentrt config profiles list` |
+| Files added | 0 | 4 YAML files + `ProfileLoader` class |
+| Config layering tiers | 4 | 5 (minimal increase) |
+
+Four YAML files and one loader class is a small cost for the boilerplate reduction and consistency guarantee.
+
+**What is added:**
+- `agentrt/config/profiles/quick.yaml`, `full.yaml`, `stealth.yaml`, `ci.yaml` (Phase 4A deliverables)
+- `ProfileLoader.load(name) -> dict` in `agentrt/config/loader.py` — checks user dir, falls back to built-in dir, raises `ProfileNotFoundError` if neither found
+- `profile: str | None = None` field on `CampaignConfig`
+- `--profile TEXT` CLI flag on `agentrt run` (overrides `profile:` in campaign YAML)
+- `agentrt config profiles list` sub-command — lists built-in and user-local profiles with a settings summary
+
+**What is NOT changed:**
+- Campaign YAML fields remain fully functional without any profile — omitting `profile:` gives the pre-profiles behaviour
+- Config validation: `CampaignConfig` validates the fully-merged result after profile application; the schema is unchanged
+- All prior config layering guarantees are preserved: env vars override everything; API keys never appear in YAML
+
+---
+
+## DD-15: LLMProvider — shared provider protocol extracted from consumers
+
+**Decision:** Extract LLM client management into a dedicated `LLMProvider` protocol in `agentrt/providers/`. All components that call an LLM (`LLMJudge`, `LLMProbeGenerator`, `LLMStrategy`) accept an injected `LLMProvider` instance rather than managing SDK clients internally. `LLMProviderFactory` constructs the correct implementation from config at startup.
+
+**What this replaces:**
+
+Each LLM-calling component previously embedded its own provider selection logic and SDK initialisation. `LLMJudge` contained an `if provider == "anthropic"` dispatch that duplicated what `LLMProbeGenerator` would have needed independently. The result would have been three copies of the same dispatch table, three sets of SDK client objects, and no shared test double.
+
+**The LLMProvider contract:**
+
+```python
+from typing import Protocol
+
+class LLMProvider(Protocol):
+    async def complete(self, prompt: str, system: str = "") -> str: ...
+    async def complete_structured(self, prompt: str, schema: dict) -> dict: ...
+```
+
+`complete` covers free-form generation (mutation engine, probe generation). `complete_structured` covers schema-constrained output (judge verdicts, structured probe metadata). Both are async; consumers never block.
+
+**Three implementations:**
+
+| Class | Wraps | Notes |
+|---|---|---|
+| `AnthropicProvider` | `anthropic` SDK | Structured output via tool-use schema |
+| `OpenAIProvider` | `openai` SDK | Structured output via `response_format` |
+| `OllamaProvider` | `ollama` client | Local models; `base_url` configurable |
+
+**`LLMProviderFactory.create(provider, model, **kwargs) -> LLMProvider`** dispatches on the `provider` string and raises `ValueError` for unknown values. Called once per config block in the Campaign Loader.
+
+**Why extract:**
+
+*No duplication:* Three consumers would have independently re-implemented `if provider == "anthropic" / openai / ollama`. Centralising in one factory file eliminates that.
+
+*Composability:* The anti-self-serving-bias guarantee (DD-14) requires that judge and generator use independent providers. With embedded clients this is an implicit convention; with injected `LLMProvider` instances it is structurally enforced — the Campaign Loader constructs two separate provider objects from separate config fields and injects them into separate consumers.
+
+*Testability:* Any class implementing the two-method `Protocol` is a valid mock. Tests for `LLMJudge`, `LLMProbeGenerator`, and `LLMStrategy` can inject a `MockProvider` with canned responses without patching SDK internals.
+
+*Extensibility:* Adding a new provider (e.g., Google Gemini, Mistral) is one new file + one `if` branch in `factory.py`. No consumer changes required.
+
+**Wiring in Campaign Loader (Phase 4B):**
+
+```python
+judge_provider    = LLMProviderFactory.create(config.judge.provider,    config.judge.model)
+gen_provider      = LLMProviderFactory.create(config.generator.provider, config.generator.model)
+mutation_provider = LLMProviderFactory.create(config.execution.mutation_provider, ...)
+
+judge     = LLMJudge(provider=judge_provider)
+generator = LLMProbeGenerator(provider=gen_provider, count=config.generator.count)
+mutator   = LLMStrategy(provider=mutation_provider)
+```
+
+`judge_provider` and `gen_provider` are separate objects, constructed from separate config keys (`config.judge.*` vs `config.generator.*`). They may be different providers entirely (anti-self-serving-bias) or the same provider with different models.
+
+**Tradeoff analysis:**
+
+| Factor | Embedded client per consumer | Shared LLMProvider |
+|---|---|---|
+| Code duplication | Three copies of dispatch logic | One factory, three implementations |
+| Anti-bias enforcement | Implicit convention | Structurally enforced by injection |
+| Testability | Must patch SDK internals | Inject mock — no patching |
+| Extensibility | Change three files | Change one factory file |
+| Added abstraction | None | One extra layer (`providers/` package) |
+
+The cost is one extra package and a minor indirection. The benefit — no duplication, structural anti-bias enforcement, clean mock injection — is proportionate.
+
+**Consumer changes:**
+
+| Consumer | Before | After |
+|---|---|---|
+| `LLMJudge` | `__init__(provider: str, model: str)` — internal dispatch | `__init__(provider: LLMProvider)` — injected |
+| `LLMProbeGenerator` | `__init__(provider: str, model: str, count: int)` — internal dispatch | `__init__(provider: LLMProvider, count: int)` — injected |
+| `LLMStrategy` | LLM client created inline in `next_candidates()` | `__init__(provider: LLMProvider)` — injected |
+
+**What is added:**
+- `LLMProvider` Protocol (`agentrt/providers/base.py`)
+- `AnthropicProvider`, `OpenAIProvider`, `OllamaProvider` (`agentrt/providers/*.py`)
+- `LLMProviderFactory` (`agentrt/providers/factory.py`)
+- `providers/` listed as a new Phase 2D deliverable
+
+**What changed in consumers:**
+- `LLMJudge`: constructor signature simplified; internal SDK dispatch removed
+- `LLMProbeGenerator`: `model` param removed from constructor; provider injected
+- `LLMStrategy`: provider injected at construction instead of inline
+- Campaign Loader (Phase 4B): calls `LLMProviderFactory.create()` once per config block; injects results
+
+---
+
+## DD-14: ProbeGenerator — separate probe generation layer with anti-self-serving-bias provider split
+
+**Decision:** Introduce a `ProbeGenerator` abstraction between the `AttackPlugin` definition and the `executor` node. Ship two implementations: `StaticProbeGenerator` (Jinja2 template expansion with optional JSONL datasets) and `LLMProbeGenerator` (LLM-driven variant generation). Configure generator and judge with independent LLM providers and models.
+
+**What this replaces:**
+
+Previously, payload creation was collapsed into the `attack_generator` LangGraph node — static payloads came from the plugin directly and LLM-generated variants were produced inline inside the node with no abstraction boundary. The generator and judge implicitly used the same LLM provider.
+
+**The ProbeGenerator contract:**
+
+```python
+class ProbeGenerator(ABC):
+    async def generate(self, plugin: AttackPlugin, context: AttackContext) -> List[AttackPayload]: ...
+```
+
+The `attack_generator` node now calls `probe_generator.generate(plugin, context)` to obtain a `List[AttackPayload]`. The node itself contains no payload-generation logic. `AttackPlugin` exposes three new optional fields to support the generator:
+
+```python
+seed_queries: List[str] = []          # base queries used as generator seed or direct fallback
+probe_template: Optional[str] = None  # Jinja2 template string; None = use seed_queries directly
+dataset_path: Optional[str] = None    # path to JSONL file supplying template variables
+```
+
+**Why a separate layer:**
+
+*Single responsibility:* The `attack_generator` node previously had two responsibilities — deciding what to attack next and constructing the payload. Separating these makes both independently testable. `StaticProbeGenerator` can be tested with no graph; `LLMProbeGenerator` can be mocked for orchestrator tests.
+
+*Zero-cost static mode:* `StaticProbeGenerator` expands Jinja2 templates using JSONL datasets or falls back to `seed_queries` directly. No LLM call, no API cost. This is the default and makes CI pipelines and air-gapped environments practical without any special-casing.
+
+*Extensibility:* New probe generation strategies (template mutations, few-shot corpus expansion, RAG-aware probes) are additive `ProbeGenerator` subclasses. No orchestrator changes required.
+
+**Anti-self-serving-bias — why separate providers matter:**
+
+When the target agent uses the same LLM family as the red team tool, using that LLM as both generator and judge produces inflated pass rates: the generator creates probes the judge is pre-disposed to pass, and the judge evaluates attacks with the same failure modes as the generator. This is the same bias observed in LLM-as-judge research.
+
+The fix is a configuration split:
+
+```yaml
+judge:
+  provider: anthropic
+  model: claude-sonnet-4       # stronger model for judgment
+
+generator:
+  strategy: llm
+  provider: openai             # different provider entirely
+  model: gpt-4o-mini           # or a cheaper model from same provider
+  count: 3
+```
+
+`CampaignConfig.generator.*` fields are explicitly separate from `CampaignConfig.judge.*`. `ProbeGeneratorFactory.create()` reads only the generator fields; `LLMJudge` reads only the judge fields. There is no shared provider instance between them.
+
+**Tradeoff analysis:**
+
+| Factor | Collapsed into node | Separate ProbeGenerator |
+|---|---|---|
+| Testability | Generator logic mixed with routing logic | Generator independently testable |
+| Zero-cost static mode | Requires special-casing in node | Natural default — StaticProbeGenerator |
+| Anti-self-serving-bias | Implicit (same provider for both) | Explicit config split |
+| Extensibility | New strategies require node changes | New strategies are subclasses only |
+| Complexity | Simpler — fewer classes | One more abstraction layer |
+
+The one cost is an additional abstraction layer. Given that probe generation is a meaningfully distinct concern from graph routing, and that the bias risk is real, this cost is justified.
+
+**`AttackState` change:**
+
+`plugin_queue: List[AttackPlugin]` is added alongside the existing `attack_queue: List[AttackPayload]`. The `attack_generator` node pops from `plugin_queue`, generates payloads via `ProbeGenerator`, and pushes to `attack_queue`. Mutation re-enqueues directly into `attack_queue`, bypassing `ProbeGenerator` — generated probes are logged in `AttackResult.metadata` for deterministic replay if needed.
+
+**What is added:**
+- `ProbeGenerator` ABC (`agentrt/generators/base.py`)
+- `StaticProbeGenerator` — Jinja2 + JSONL, zero LLM cost (`agentrt/generators/static.py`)
+- `LLMProbeGenerator` — LLM-driven variant probes, independent provider (`agentrt/generators/llm.py`)
+- `ProbeGeneratorFactory` — selects implementation from `CampaignConfig.generator.strategy` (`agentrt/generators/factory.py`)
+- `generator:` block in Campaign YAML (`strategy`, `provider`, `model`, `count`)
+- Three new fields on `AttackPlugin`: `seed_queries`, `probe_template`, `dataset_path`
+- `plugin_queue: List[AttackPlugin]` field on `AttackState`
+
+**What is removed:**
+- Inline payload construction logic from the `attack_generator` LangGraph node
+- Implicit shared LLM provider between attack generation and judgment
+
+---
+
 ## DD-13: Orchestration — LangGraph adopted from Phase 3 (supersedes DD-01)
 
 **Decision:** Introduce LangGraph at Phase 3 (orchestrator phase), not Phase 4. The asyncio-first plan in DD-01 is reversed given that 75% of campaigns will have 3+ LLM nodes in a stateful cycle from early on. The 25% static case is handled as a degenerate LangGraph graph path.
@@ -119,18 +438,18 @@ This is the strongest argument for asyncio. LangGraph adds `langgraph` and `lang
 
 ---
 
-## DD-10: Config Layering — four-tier hierarchy
+## DD-10: Config Layering — five-tier hierarchy (extended from four-tier by DD-16)
 
-**Decision:** Use a four-tier config hierarchy matching the redteam4RAG pattern, resolved via Pydantic `BaseSettings`.
+**Decision:** Use a five-tier config hierarchy resolved via Pydantic `BaseSettings`. Originally four-tier; named profiles were inserted as a fifth tier between campaign YAML and built-in defaults (see DD-16).
 
 ```
-env vars  >  CLI flags  >  campaign YAML  >  built-in defaults
+env vars  >  CLI flags  >  campaign YAML  >  named profile  >  built-in defaults
 ```
 
 **Rules:**
 - API keys (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`) read from env vars only — never stored in campaign YAML (NFR-020)
 - Pydantic `BaseSettings` resolves the merged config at startup and validates all fields
-- Named config profiles stored in `~/.config/agentrt/profiles/` for reuse across campaigns
+- Named profiles (`quick`, `full`, `stealth`, `ci`) ship in `agentrt/config/profiles/`; user overrides go in `~/.config/agentrt/profiles/` — see DD-16
 
 ---
 
@@ -269,7 +588,13 @@ class SearchStrategy(ABC):
 class StaticStrategy(SearchStrategy):
     def next_candidates(self, results): return []   # no mutation
 
+class TemplateStrategy(SearchStrategy):
+    TRANSFORMS: ClassVar[list[str]] = ["base64", "language_swap", "case_inversion", "unicode_confusables"]
+    def __init__(self, transforms: list[str] = TRANSFORMS): ...
+    def next_candidates(self, results): ...         # applies each transform; zero LLM cost
+
 class LLMStrategy(SearchStrategy):
+    def __init__(self, provider: LLMProvider): ...
     def next_candidates(self, results): ...         # LLM generates variants
 ```
 
@@ -287,23 +612,90 @@ This ensures multi-turn attacks and MCTS are additive extensions later — no in
 
 **Implemented now:**
 - `StaticStrategy` — no mutation, zero cost
-- `LLMStrategy` — calls judge/attacker LLM to generate `mutation_count` variants of a failed payload
+- `TemplateStrategy` — applies deterministic text transforms (base64, language_swap, case_inversion, unicode_confusables) to each failing payload; zero LLM cost; fully reproducible; safe for CI and air-gapped environments. `mutation_transforms` config controls which transforms are active.
+- `LLMStrategy` — calls LLM (via injected `LLMProvider`) to generate `mutation_count` variants of a failed payload
 
 **Deferred:**
-- Template-based mutations (base64, language swap, persona reassignment) — Phase 2
-- MCTS (`MCTSStrategy`) — Phase 3/4, implemented as a new `SearchStrategy` with internal tree state; orchestrator unchanged
+- MCTS (`MCTSStrategy`) — post-MVP; implemented as a new `SearchStrategy` with internal tree state; orchestrator unchanged
 
 ---
 
-## DD-05: Attack Plugin System — Python entry points (importlib.metadata)
+## DD-05: Attack Plugin System — dual registration: `@attack` decorator + entry points
 
-**Decision:** Use Python entry points for attack plugin discovery, matching the redteam4RAG pattern.
+**Decision:** Use two registration mechanisms that share a single `PluginRegistry`. Built-in attacks (shipped inside the `agentrt` package) self-register via an `@attack` class decorator at import time. Community plugins use Python entry points under the `agentrt.attacks` group. Both paths call `PluginRegistry.register()`.
+
+**Why dual registration:**
+
+redteam4RAG uses the same dual mechanism (`@attack` decorator + entry points). The decorator gives built-in attacks a clean, inline declaration — the attack definition and its metadata sit together in one place. Entry points give community plugins the same discoverability without requiring them to know internal module paths. Both mechanisms are standard Python patterns; using both for their respective use cases is additive, not conflicting, provided they share a single registry.
+
+The alternative — entry points only for built-ins — requires all 21 built-in attacks to be listed in `pyproject.toml`. That list would diverge from the source as attacks are added or removed, and it forces developers to touch two files to add one attack. The decorator keeps registration co-located with the attack definition; entry points exist only for third-party packages where co-location is not possible.
 
 **Design:**
-- Each attack is a class inheriting `AttackPlugin` ABC with fields: `id`, `name`, `category`, `severity`, and method `execute(agent, context) -> AttackResult`
-- Built-in attacks registered under the `agentrt.attacks` entry point group in `pyproject.toml`
-- Community plugins installed via `pip install agentrt-plugin-*` and auto-discovered at runtime via `importlib.metadata`
-- Attack categories map directly to Python subpackages: `attacks/category_a/`, `attacks/category_b/`, etc.
+
+```python
+def attack(*, id: str, name: str, category: str, severity: str):
+    """Class decorator — registers the plugin with PluginRegistry at import time."""
+    def decorator(cls: type[AttackPlugin]) -> type[AttackPlugin]:
+        cls.id = id
+        cls.name = name
+        cls.category = category
+        cls.severity = severity
+        PluginRegistry.register(cls)
+        return cls
+    return decorator
+
+class PluginRegistry:
+    _plugins: ClassVar[dict[str, type[AttackPlugin]]] = {}
+
+    @classmethod
+    def register(cls, plugin_cls: type[AttackPlugin]) -> type[AttackPlugin]:
+        if plugin_cls.id in cls._plugins:
+            raise RegistryError(f"Duplicate plugin id: {plugin_cls.id}")
+        cls._plugins[plugin_cls.id] = plugin_cls
+        return plugin_cls
+
+    @classmethod
+    def discover(cls) -> None:
+        cls._import_all_attacks()
+        for ep in importlib.metadata.entry_points(group="agentrt.attacks"):
+            ep.load()
+
+    @classmethod
+    def _import_all_attacks(cls) -> None:
+        import pkgutil, agentrt.attacks as pkg
+        for _, modname, _ in pkgutil.walk_packages(pkg.__path__, prefix=pkg.__name__ + "."):
+            importlib.import_module(modname)
+```
+
+**Registration paths:**
+
+| Path | Mechanism | Trigger |
+|---|---|---|
+| Built-in attacks | `@attack` decorator | `_import_all_attacks()` imports each module; decorator fires synchronously |
+| Community plugins | Entry point group `agentrt.attacks` | `ep.load()` imports the plugin module; decorator fires (or plugin calls `register()` directly) |
+
+**Duplicate ID guard:** `PluginRegistry.register()` raises `RegistryError` if two plugins claim the same `id`, regardless of which registration path they used. This catches ID collisions between built-ins and community plugins at startup.
+
+**Public SDK surface:** The `@attack` decorator is exported from `agentrt/sdk.py` as stable public API. Community plugin authors write:
+
+```python
+from agentrt.sdk import AttackPlugin, attack
+
+@attack(id="X-01", name="Custom Attack", category="A", severity="medium")
+class MyCustomAttack(AttackPlugin):
+    seed_queries = ["..."]
+    async def execute(self, agent, context): ...
+```
+
+They do not import from `agentrt.attacks.base` directly — internal paths are not considered stable API.
+
+**What changed from the original entry-points-only design:**
+- Added `@attack` class decorator to `agentrt/attacks/base.py`
+- Added `_import_all_attacks()` to `PluginRegistry` using `pkgutil.walk_packages`
+- `discover()` runs both paths sequentially
+- `@attack` exported from `agentrt/sdk.py`
+- Built-in attacks in `attacks/category_*/` are decorated, not listed in `pyproject.toml`
+- Entry points in `pyproject.toml` remain for community plugins and for the integration test stub
 
 **Deferred:**
 - Plugin signature validation (NFR-022) deferred to Phase 2 when a community registry exists

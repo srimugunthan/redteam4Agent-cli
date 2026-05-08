@@ -1,0 +1,9 @@
+attacks:
+  categories: ["A", "B", "C", "E", "F"]
+execution:
+  mutation_count: 3
+  mutation_strategy: template
+  mutation_transforms: ["base64", "language_swap", "case_inversion", "unicode_confusables"]
+judge:
+  provider: anthropic
+  model: claude-sonnet-4-6

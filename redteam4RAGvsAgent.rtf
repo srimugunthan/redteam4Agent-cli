@@ -1,0 +1,1152 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 HelveticaNeue-Bold;\f2\fnil\fcharset0 HelveticaNeue-Italic;
+\f3\fmodern\fcharset0 Courier;\f4\fnil\fcharset0 Menlo-Regular;\f5\fmodern\fcharset0 Courier-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red94\green94\blue94;\red78\green78\blue78;\red239\green239\blue239;
+\red109\green109\blue109;\red0\green0\blue0;\red78\green78\blue78;\red144\green1\blue18;\red0\green0\blue0;
+}
+{\*\expandedcolortbl;;\cssrgb\c44314\c44314\c44314;\cssrgb\c38039\c38039\c38039;\cssrgb\c94902\c94902\c94902;
+\cssrgb\c50196\c50196\c50196;\cssrgb\c0\c0\c0;\cssrgb\c38039\c38039\c38039\c20000;\cssrgb\c63922\c8235\c8235;\cssrgb\c0\c0\c0\c10196;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa51\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\
+\pard\pardeftab720\sa51\partightenfactor0
+\cf3 \cb4 \strokec3 Now I have comprehensive details on both systems. Let me write up the architectural comparison.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa323\partightenfactor0
+
+\f1\b\fs39 \cf3 \cb4 \strokec3 Architectural Comparison: AgentRedTeam vs redteam4RAG-cli\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs26 \cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 1. Target Domain \'97 Fundamentally Different Attack Surfaces\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1270\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3391\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4537\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf3 \cb4 \strokec6 Dimension\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1270\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3391\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4537\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Target\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 RAG pipeline (retrieval + generation)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 AI Agent system (tool-calling, memory, multi-step)\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1270\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3391\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4537\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Core threat model\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Poisoned retrieval, context injection, hallucination, data leakage via chunks\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Goal hijacking, tool misuse, memory poisoning, reasoning manipulation, exfiltration\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1270\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3391\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4537\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Attack categories\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Retriever, Context, Injection, DataLeakage, Faithfulness (5, RAG-specific)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 A (Prompt Injection), B (Tool Misuse), C (Memory), E (Reasoning), F (Exfiltration) (5, agent-specific)\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1270\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3391\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4537\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Attack count\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 24 attacks in v1.0 (98 documented in attack DB)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 21 attacks across A\'96F categories\cf0 \cb1 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 The whole system was designed from the ground up for different threat surfaces. RAG threats center on what gets 
+\f2\i \cf3 \cb4 \strokec3 retrieved
+\f0\i0 \cf3 \cb4 \strokec3 ; Agent threats center on what the agent 
+\f2\i \cf3 \cb4 \strokec3 does
+\f0\i0 \cf3 \cb4 \strokec3 .\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 2. Orchestration \'97 Similar Skeleton, Different Wiring\cb1 \
+\pard\pardeftab720\sa51\partightenfactor0
+
+\f0\b0\fs26 \cf3 \cb4 \strokec3 Both use 
+\f1\b LangGraph StateGraph
+\f0\b0  with a 4-node cycle, but the nodes differ in key ways:\cf3 \cb1 \strokec3 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1135\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3393\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4670\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\f1\b\fs24 \cf3 \cb4 \strokec6 Node\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1135\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3393\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4670\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Generator\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 attack_generator
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 creates probes for the current\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AttackPayload
+\f0\fs24 \cf0 \cb1 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 attack_generator
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 dequeues a static payload OR calls LLM attacker to generate novel payload\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1135\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3393\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4670\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Executor\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 executor
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 fires probes concurrently via\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 asyncio.Semaphore
+\f0\fs24 \cf0 \cb1 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 executor
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 invokes agent via\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AgentInterface
+\f0\fs24 \cf3 \cb4 \strokec6 , drives multi-turn via\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 ConversationStrategy
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1135\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3393\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4670\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Judge\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 judge
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 evaluates each probe response\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 judge
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 evaluates\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 List[AgentResponse]
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(full multi-turn history)\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1135\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3393\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4670\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Mutator\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 regenerator
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 generates variant probes\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 mutator
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 re-enqueues variant payloads via\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 SearchStrategy
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\f1\b\fs26 \cf3 \cb4 \strokec3 Key difference:
+\f0\b0  redteam4RAG's executor fires probes in 
+\f2\i \cf3 \cb4 \strokec3 batch concurrency
+\f0\i0 \cf3 \cb4 \strokec3  (semaphore-limited fan-out within a single attack). AgentRedTeam's executor drives 
+\f2\i \cf3 \cb4 \strokec3 multi-turn conversations
+\f0\i0 \cf3 \cb4 \strokec3  sequentially within a single attack, then uses LangGraph's 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 Send
+\f0\fs26 \cf3 \cb4 \strokec3  API for parallelism across attacks.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 3. Probe/Payload Architecture \'97 Extra Generator Layer in redteam4RAG\cb1 \
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 redteam4RAG
+\f0\b0  has an explicit 
+\f1\b ProbeGenerator
+\f0\b0  abstraction that sits between the attack definition and the executor:\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\qc\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AttackSpec 
+\f4 \uc0\u8594 
+\f3  ProbeGenerator 
+\f4 \uc0\u8594 
+\f3  List[Probe] 
+\f4 \uc0\u8594 
+\f3  Executor 
+\f4 \uc0\u8594 
+\f3  Target\
+\pard\pardeftab720\sa51\partightenfactor0
+
+\f0\fs26 \cf3 \cb4 \strokec3 Two generators ship: 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 StaticProbeGenerator
+\f0\fs26 \cf3 \cb4 \strokec3  (Jinja2 template expansion with optional JSONL datasets) and 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMProbeGenerator
+\f0\fs26 \cf3 \cb4 \strokec3  (LLM generates variants). The generator and judge can use 
+\f1\b different LLM providers
+\f0\b0  \'97 an explicit anti-self-serving-bias design decision not present in AgentRedTeam.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\sa51\partightenfactor0
+
+\f1\b \cf3 \cb4 \strokec3 AgentRedTeam
+\f0\b0  collapses this into the 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 attack_generator
+\f0\fs26 \cf3 \cb4 \strokec3  LangGraph node:\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\qc\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AttackPlugin (pre-built payload) 
+\f4 \uc0\u8594 
+\f3  attack_generator node 
+\f4 \uc0\u8594 
+\f3  executor\
+\pard\pardeftab720\sa51\partightenfactor0
+
+\f0\fs26 \cf3 \cb4 \strokec3 No separate generator class. Static payloads come from the plugin; LLM-generated novel payloads are created inside the graph node itself.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 4. Adapter Layer \'97 Single HTTP vs REST + SDK\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1134\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4206\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3859\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1134\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4206\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3859\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Adapters\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 HTTPAdapter
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0only\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 RestAdapter
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0+\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 SDKAdapter
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1134\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4206\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3859\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Response extraction\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f1\b \cf3 \cb4 JSONPath selectors
+\f0\b0 \'a0configured in YAML \'97 adapts to any HTTP response shape without code changes\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Fixed schema with opt-in instrumented fields (
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 tool_calls
+\f0\fs24 \cf3 \cb4 \strokec6 ,\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 memory_reads
+\f0\fs24 \cf3 \cb4 \strokec6 ,\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 agent_trace
+\f0\fs24 \cf3 \cb4 \strokec6 )\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1134\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4206\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3859\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 In-process testing\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not supported\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 SDKAdapter calls Python callable directly\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1134\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4206\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3859\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Grey-box hooks\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not applicable\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LangGraphHooks
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0config on SDKAdapter\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1134\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4206\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3859\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Reset\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not applicable (stateless RAG)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 reset()
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0method on interface \'97 required for multi-session memory attacks\cf0 \cb1 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 redteam4RAG's JSONPath approach is more flexible for black-box HTTP targets. AgentRedTeam's SDK adapter is unique to agent testing because agents often run in-process and need state reset between sessions.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 5. Instrumentation Contract \'97 Chunks vs Tool Calls\cb1 \
+\pard\pardeftab720\sa51\partightenfactor0
+
+\f0\b0\fs26 \cf3 \cb4 \strokec3 Both systems adopt the same philosophy: 
+\f2\i \cf3 \cb4 \strokec3 the target opts into transparency via response fields; the red team tool does not intercept internals.
+\f0\i0 \cf3 \cb1 \strokec3 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1450\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3383\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4366\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\f1\b\fs24 \cf0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1450\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3383\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4366\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Primary evidence fields\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 chunks
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(retrieved docs with score, position, source)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 tool_calls
+\f0\fs24 \cf3 \cb4 \strokec6 ,\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 memory_reads
+\f0\fs24 \cf3 \cb4 \strokec6 ,\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 reasoning_steps
+\f0\fs24 \cf3 \cb4 \strokec6 ,\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 agent_trace
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1450\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3383\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4366\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Extraction\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 JSONPath selectors configured per deployment\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Fixed schema fields, parsed by adapter\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1450\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3383\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4366\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Tiers\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Black-box \uc0\u8594  Gray-box \u8594  Instrumented \u8594  Traced\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Black-box \uc0\u8594  Grey-box \u8594  Trace \u8594  Injection\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1450\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3383\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4366\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Injection mechanism\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not applicable\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Mock Tool Server \'97 agent calls adversarial fake endpoint\cf0 \cb1 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 The 
+\f1\b Mock Tool Server
+\f0\b0  is an AgentRedTeam-only component. It exists because agents make tool calls; injecting adversarial tool responses is a primary attack vector (A-02, B-04). RAG systems don't have this surface.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 6. Attack Plugin System \'97 Decorator vs ABC + Entry Points\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1360\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3909\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3931\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1360\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3909\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3931\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Registration style\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 @attack
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0decorator (self-registers at import time) + entry points\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AttackPlugin
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0ABC subclass + entry points only\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1360\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3909\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3931\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Discovery\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 _import_all_attacks()
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0explicitly imports all modules, then entry points\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 importlib.metadata.entry_points(group="agentrt.attacks")
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0only\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1360\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3909\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3931\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Plugin SDK\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 No separate SDK module\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 agentrt/sdk.py
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 stable public re-export surface\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1360\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3909\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3931\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Community install\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 pip install redteam4rag-plugin-*
+\f0\fs24 \cf0 \cb1 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 pip install agentrt-plugin-*
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 redteam4RAG's dual mechanism (decorator + entry points) is pragmatic but creates two registration paths. AgentRedTeam is entry-points only, and adds an explicit 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 sdk.py
+\f0\fs26 \cf3 \cb4 \strokec3  surface so internal module paths don't become accidental public API.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 7. Judge Engine \'97 Structurally Similar, Different Names\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1218\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4234\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3747\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1218\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4234\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3747\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Base\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 BaseJudge
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0ABC\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 JudgeEngine
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0ABC\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1218\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4234\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3747\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 LLM judge\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMJudge
+\f0\fs24 \cf0 \cb1 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMJudge
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1218\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4234\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3747\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Pattern judge\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 RegexJudge
+\f0\fs24 \cf0 \cb1 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 KeywordJudge
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1218\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4234\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3747\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Schema judge\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 \'97\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 SchemaJudge
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(JSON schema validation)\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1218\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4234\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3747\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Composite\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 CompoundJudge
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(AND/OR)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 CompositeJudge
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(AND/OR)\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1218\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4234\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3747\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Input\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 JudgeContext
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(single response)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 List[AgentResponse]
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(full conversation)\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1218\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4234\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3747\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Provider layer\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Separate\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 providers/
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0layer (Anthropic, OpenAI)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Provider embedded in\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMJudge
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 The 
+\f1\b provider abstraction
+\f0\b0  is a significant structural difference. redteam4RAG extracts the 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMProvider
+\f0\fs26 \cf3 \cb4 \strokec3  protocol into its own 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 providers/
+\f0\fs26 \cf3 \cb4 \strokec3  package shared by both judge and generator. AgentRedTeam keeps provider selection inside 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMJudge
+\f0\fs26 \cf3 \cb4 \strokec3  \'97 simpler but less composable.\cf3 \cb1 \strokec3 \
+\cf3 \cb4 \strokec3 AgentRedTeam adds 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 SchemaJudge
+\f0\fs26 \cf3 \cb4 \strokec3  for structured output validation, relevant when agents produce JSON payloads. redteam4RAG has no equivalent because RAG output is free-form text.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 8. Persistence \'97 JSON Files vs SQLite Trace Store\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1196\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2349\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth5654\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1196\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2349\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth5654\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Storage\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 JSON report files\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 TraceStore
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 SQLite with incremental flush per result\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1196\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2349\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth5654\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Crash safety\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not explicitly addressed\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Explicit NFR \'97 each\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AttackResult
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0flushed immediately after judgment\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1196\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2349\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth5654\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Crash recovery\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not supported\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 SqliteSaver
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0LangGraph checkpointer +\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 --resume
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0CLI flag\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1196\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2349\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth5654\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Post-run export\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 report reformat
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0command\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 agentrt trace export --run-id xyz789
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 AgentRedTeam's SQLite-based trace store is a more robust design for long campaigns with expensive LLM calls. The 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 --resume
+\f0\fs26 \cf3 \cb4 \strokec3  flag allows restarting mid-campaign without losing completed results or re-spending API budget.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 9. Conversation Strategy \'97 Multi-Turn is Central in AgentRedTeam\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1288\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3059\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4852\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1288\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3059\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4852\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 v1.0 support\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Single-turn only (
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 StaticConversation
+\f0\fs24 \cf3 \cb4 \strokec6 )\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 ScriptedConversation
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0+\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 HeuristicConversation
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0both complete in v1\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1288\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3059\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4852\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Multi-turn state\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Conversation history in\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AttackState
+\f0\fs24 \cf0 \cb1 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Conversation history in\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AttackState
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0+ LangGraph thread_id\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1288\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3059\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4852\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 LLM-driven turns\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMAdaptiveConversation
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 deferred to v1.1\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMConversation
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 deferred stub\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1288\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3059\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4852\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Memory attack flows\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not applicable\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Multi-session flows via\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 reset()
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0between sessions (C-01, C-04)\cf0 \cb1 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 Multi-turn is a first-class concern in AgentRedTeam from day one because agent attacks frequently require conversation to escalate. In redteam4RAG it's a future enhancement because RAG queries are stateless.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 10. Mutation Strategies \'97 redteam4RAG Has More\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth2333\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4418\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2448\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf3 \cb4 \strokec6 Strategy\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth2333\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4418\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2448\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Static (no mutation)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 StaticStrategy
+\f0\fs24 \cf0 \cb1 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 StaticStrategy
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth2333\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4418\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2448\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 LLM-generated variants\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMStrategy
+\f0\fs24 \cf0 \cb1 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMStrategy
+\f0\fs24 \cf0 \cb1 \strokec6 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth2333\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4418\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2448\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Template transforms\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 TemplateStrategy
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(base64, language swap, case) \'97\'a0
+\f1\b shipped v1.0
+\f0\b0 \cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Deferred to post-MVP\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth2333\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4418\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2448\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 MCTS\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 MCTSStrategy
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 future\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 MCTSStrategy
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 post-MVP roadmap\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth2333\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4418\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2448\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Genetic/evolutionary\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 GeneticStrategy
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 v1.2+\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not mentioned\cf0 \cb1 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 redteam4RAG ships 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 TemplateStrategy
+\f0\fs26 \cf3 \cb4 \strokec3  (deterministic, zero-LLM-cost transformations) in v1.0. AgentRedTeam defers this.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 11. Configuration \'97 Campaign File vs Config File\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1377\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3886\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3935\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf0 \strokec6 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1377\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3886\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3935\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Primary config format\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 .redteam4rag.yaml
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(workspace config file)\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Campaign YAML (per-run, contains target + attack selection)\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1377\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3886\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3935\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Precedence\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 CLI >\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 .redteam4rag.yaml
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0> env vars >\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 .env
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0> defaults\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 env vars > CLI > campaign YAML > defaults\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1377\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3886\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3935\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Secrets\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 SecretStr
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 auto-redacted in logs/output\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Read from env only, never stored in YAML\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1377\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3886\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3935\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Attack presets\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Built-in named profiles (
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 quick
+\f0\fs24 \cf3 \cb4 \strokec6 ,\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 full
+\f0\fs24 \cf3 \cb4 \strokec6 ,\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 retriever-only
+\f0\fs24 \cf3 \cb4 \strokec6 )\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Categories and attack IDs in campaign YAML\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1377\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3886\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3935\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Mock server config\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Not applicable\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 mock_server.routes
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0in campaign YAML\cf0 \cb1 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 The 
+\f1\b campaign YAML
+\f0\b0  model in AgentRedTeam is more self-contained \'97 one file describes the entire run including target, attack selection, judge, mock server routes, and reporting config. redteam4RAG splits this across the workspace config file and CLI flags.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 12. Structural Pattern Differences\cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf7 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1012\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3457\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4730\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf3 \cb4 \strokec6 Pattern\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 redteam4RAG\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf3 \cb4 AgentRedTeam\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1012\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3457\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4730\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf3 \cb4 Interface style\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 typing.Protocol
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(structural subtyping) throughout\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 ABC
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0(nominal subtyping) throughout\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1012\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3457\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4730\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Models location\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 models.py
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0\'97 single file\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 adapters/base.py
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0for data models +\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 attacks/base.py
+\f0\fs24 \cf3 \cb4 \strokec6 ,\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 judge/base.py
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0etc.\cf0 \cb1 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf7 \trbrdrb\brdrs\brdrw20\brdrcf7 \trbrdrr\brdrs\brdrw20\brdrcf7 
+\clvertalc \clshdrawnil \clwWidth1012\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth3457\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4730\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf7 \clbrdrl\brdrs\brdrw20\brdrcf7 \clbrdrb\brdrs\brdrw20\brdrcf7 \clbrdrr\brdrs\brdrw20\brdrcf7 \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Test target\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf3 \cb4 Intentionally vulnerable FastAPI RAG server with feature flags\cf0 \cb1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 TestAgent
+\f0\fs24 \cf3 \cb4 \strokec6 \'a0with mode flags (blackbox/greybox/trace/injection)\cf0 \cb1 \cell \lastrow\row
+\pard\pardeftab720\sa51\partightenfactor0
+
+\fs26 \cf3 \cb4 \strokec3 redteam4RAG's use of 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 typing.Protocol
+\f0\fs26 \cf3 \cb4 \strokec3  across all extension points (
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 LLMProvider
+\f0\fs26 \cf3 \cb4 \strokec3 , 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 ProbeGenerator
+\f0\fs26 \cf3 \cb4 \strokec3 , 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 ConversationStrategy
+\f0\fs26 \cf3 \cb4 \strokec3 , 
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 SearchStrategy
+\f0\fs26 \cf3 \cb4 \strokec3 ) enables structural subtyping \'97 any object implementing the right methods works without inheriting from a base class. AgentRedTeam uses ABCs everywhere, requiring explicit inheritance.\cf3 \cb1 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\f1\b\fs30\fsmilli15210 \cf3 \cb4 \strokec3 Summary: What Each Inherits and What Each Adds\cb1 \
+\pard\pardeftab720\sa51\partightenfactor0
+
+\f0\b0\fs26 \cf3 \cb4 \strokec3 AgentRedTeam is the spiritual successor to redteam4RAG applied to a harder problem. It inherits:\cf3 \cb1 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf3 \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 LangGraph StateGraph orchestration\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Typer CLI + Pydantic config\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Entry-point plugin discovery\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 JSON/MD/HTML reporting via Jinja2\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Same judge engine structure\cb1 \
+\pard\pardeftab720\sa51\partightenfactor0
+\cf3 \cb4 \strokec3 It adds to handle agent-specific complexity:\cf3 \cb1 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\f1\b \cf3 \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 SDKAdapter
+\f0\b0 \'a0for in-process agent testing\cb1 \
+\ls2\ilvl0
+\f1\b \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Mock Tool Server
+\f0\b0 \'a0for adversarial tool output injection\cb1 \
+\ls2\ilvl0
+\f1\b \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Multi-session memory attack flows
+\f0\b0 \'a0with\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 reset()
+\f0\fs26 \cf3 \cb4 \strokec3 \'a0and\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 AgentInterface
+\f0\fs26 \cf3 \cb4 \strokec3 \'a0contract\cb1 \
+\ls2\ilvl0
+\f1\b \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 SQLite trace store
+\f0\b0 \'a0with incremental flush +\'a0
+\f3\fs23\fsmilli11700 \cf8 \cb9 \strokec8 --resume
+\f0\fs26 \cf3 \cb4 \strokec3 \'a0crash recovery\cb1 \
+\ls2\ilvl0
+\f1\b \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Multi-turn conversation
+\f0\b0 \'a0as a first-class feature (not deferred)\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\f5\b\fs23\fsmilli11700 \cf8 \cb9 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec8 agentrt/sdk.py
+\f0\b0\fs26 \cf3 \cb4 \strokec3 \'a0stable public plugin API\cb1 \
+\pard\pardeftab720\sa51\partightenfactor0
+\cf3 \cb4 \strokec3 redteam4RAG has sharper implementations in a few areas that AgentRedTeam could borrow:\cf3 \cb1 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\f1\b \cf3 \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 JSONPath response extraction
+\f0\b0 \'a0\'97 more flexible than a fixed schema for black-box HTTP targets\cb1 \
+\ls3\ilvl0
+\f1\b \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Separate LLM provider layer
+\f0\b0 \'a0shared between judge and generator\cb1 \
+\ls3\ilvl0
+\f1\b \cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Anti-self-serving-bias
+\f0\b0 \'a0as an explicit design decision (different providers for judge vs generator)\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\f5\b\fs23\fsmilli11700 \cf8 \cb9 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec8 TemplateStrategy
+\f0\b0\fs26 \cf3 \cb4 \strokec3 \'a0shipped in v1.0 (AgentRedTeam defers this)\cb1 \
+\ls3\ilvl0
+\f5\b\fs23\fsmilli11700 \cf8 \cb9 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec8 typing.Protocol
+\f0\b0\fs26 \cf3 \cb4 \strokec3 \'a0over ABC for looser coupling at extension points\cb1 \
+}

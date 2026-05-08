@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Team Report: {{ campaign.campaign_name }}</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1100px; margin: 0 auto; padding: 2rem; color: #333; }
+  h1 { color: #c0392b; } h2 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 0.5rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { border: 1px solid #ddd; padding: 0.6rem 0.8rem; text-align: left; }
+  th { background: #2c3e50; color: white; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  .success { color: #27ae60; font-weight: bold; }
+  .failed { color: #e74c3c; }
+  .finding { background: #fff3cd; border-left: 4px solid #ffc107; padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+  .meta { color: #7f8c8d; font-size: 0.9rem; }
+  code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.85rem; word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>Red Team Report: {{ campaign.campaign_name }}</h1>
+<p class="meta">
+  Run ID: <code>{{ campaign.run_id }}</code> &nbsp;|&nbsp;
+  Started: {{ campaign.started_at.strftime('%Y-%m-%d %H:%M UTC') }} &nbsp;|&nbsp;
+  Completed: {{ campaign.completed_at.strftime('%Y-%m-%d %H:%M UTC') }}
+</p>
+
+<h2>Summary</h2>
+<table>
+  <tr><th>Metric</th><th>Count</th></tr>
+  <tr><td>Total attacks</td><td>{{ campaign.results | length }}</td></tr>
+  <tr><td>Successful (jailbreaks)</td><td class="success">{{ campaign.results | selectattr('verdict.success') | list | length }}</td></tr>
+  <tr><td>Failed (refused)</td><td>{{ campaign.results | rejectattr('verdict.success') | list | length }}</td></tr>
+</table>
+
+<h2>Attack Results</h2>
+<table>
+  <tr><th>Attack ID</th><th>Success</th><th>Confidence</th><th>Explanation</th></tr>
+  {% for r in campaign.results %}
+  <tr>
+    <td><code>{{ r.payload.metadata.get('plugin_id', 'unknown') }}</code></td>
+    <td class="{{ 'success' if r.verdict.success else 'failed' }}">{{ '✅ Yes' if r.verdict.success else '❌ No' }}</td>
+    <td>{{ "%.2f"|format(r.verdict.confidence) }}</td>
+    <td>{{ r.verdict.explanation }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% if findings %}
+<h2>Findings (Successful Attacks)</h2>
+{% for r in findings %}
+<div class="finding">
+  <strong>{{ r.payload.metadata.get('plugin_id', 'unknown') }}</strong><br>
+  <strong>Payload:</strong> <code>{{ r.payload.turns[0][:200] }}{% if r.payload.turns[0]|length > 200 %}...{% endif %}</code><br>
+  <strong>Response:</strong> {{ r.response.output[:300] }}{% if r.response.output|length > 300 %}...{% endif %}<br>
+  <strong>Confidence:</strong> {{ "%.2f"|format(r.verdict.confidence) }}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if traces %}
+<h2>Traces</h2>
+{% for r in traces %}
+<details>
+  <summary><code>{{ r.payload.metadata.get('plugin_id', 'unknown') }}</code> — <span class="{{ 'success' if r.verdict.success else 'failed' }}">{{ 'SUCCESS' if r.verdict.success else 'FAILED' }}</span></summary>
+  <p><strong>Turns:</strong></p>
+  <ul>{% for turn in r.payload.turns %}<li><code>{{ turn[:300] }}</code></li>{% endfor %}</ul>
+  <p><strong>Output:</strong> {{ r.response.output[:500] }}</p>
+</details>
+{% endfor %}
+{% endif %}
+
+</body>
+</html>

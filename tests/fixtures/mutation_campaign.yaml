@@ -1,0 +1,20 @@
+name: "Mutation Test Campaign"
+version: "1.0"
+target:
+  type: rest
+  endpoint: http://localhost:9000/invoke
+judge:
+  provider: keyword
+  model: keyword
+attacks:
+  categories:
+    - A-01
+execution:
+  mutation_count: 2
+  mutation_strategy: template
+  mutation_transforms:
+    - base64
+    - case_inversion
+reporting:
+  formats: [json]
+  output_dir: ./test_output/

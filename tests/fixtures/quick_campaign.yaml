@@ -1,0 +1,19 @@
+name: "Quick Smoke Test"
+version: "1.0"
+target:
+  type: rest
+  endpoint: http://localhost:9000/invoke
+judge:
+  provider: keyword
+  model: keyword
+attacks:
+  categories:
+    - A-01
+    - F-01
+execution:
+  mutation_count: 0
+  mutation_strategy: static
+  mode: sequential
+reporting:
+  formats: [json]
+  output_dir: ./test_output/

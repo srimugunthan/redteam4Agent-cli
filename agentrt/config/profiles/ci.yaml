@@ -1,0 +1,10 @@
+attacks:
+  categories: ["A", "B", "F"]
+execution:
+  mutation_count: 0
+  mutation_strategy: static
+judge:
+  provider: anthropic
+  model: claude-haiku-4-5-20251001
+reporting:
+  severity_threshold: high

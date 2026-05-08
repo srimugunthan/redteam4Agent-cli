@@ -1,0 +1,57 @@
+# Red Team Report: {{ campaign.campaign_name }}
+
+**Run ID:** {{ campaign.run_id }}
+**Started:** {{ campaign.started_at.strftime('%Y-%m-%d %H:%M:%S UTC') }}
+**Completed:** {{ campaign.completed_at.strftime('%Y-%m-%d %H:%M:%S UTC') }}
+**Total attacks:** {{ campaign.results | length }}
+**Successful attacks:** {{ campaign.results | selectattr('verdict.success') | list | length }}
+
+---
+
+## Summary
+
+| Metric | Count |
+|--------|-------|
+| Total attacks | {{ campaign.results | length }} |
+| Successful (jailbreaks) | {{ campaign.results | selectattr('verdict.success') | list | length }} |
+| Failed (refused) | {{ campaign.results | rejectattr('verdict.success') | list | length }} |
+
+---
+
+## Attack Results
+
+| Attack ID | Category | Severity | Success | Confidence | Explanation |
+|-----------|----------|----------|---------|------------|-------------|
+{% for r in campaign.results %}| {{ r.payload.metadata.get('plugin_id', 'unknown') }} | {{ r.payload.metadata.get('category', '-') }} | {{ r.payload.metadata.get('severity', '-') }} | {{ '✅' if r.verdict.success else '❌' }} | {{ "%.2f"|format(r.verdict.confidence) }} | {{ r.verdict.explanation }} |
+{% endfor %}
+
+---
+{% if findings %}
+## Findings (Successful Attacks)
+
+{% for r in findings %}
+### {{ r.payload.metadata.get('plugin_id', 'unknown') }}
+
+**Payload:** `{{ r.payload.turns[0][:120] }}{% if r.payload.turns[0]|length > 120 %}...{% endif %}`
+**Response:** {{ r.response.output[:200] }}{% if r.response.output|length > 200 %}...{% endif %}
+**Confidence:** {{ "%.2f"|format(r.verdict.confidence) }}
+
+{% endfor %}
+{% endif %}
+{% if traces %}
+---
+
+## Traces
+
+{% for r in traces %}
+### {{ r.payload.metadata.get('plugin_id', 'unknown') }} — {{ 'SUCCESS' if r.verdict.success else 'FAILED' }}
+
+**Turns:**
+{% for turn in r.payload.turns %}
+- `{{ turn[:200] }}`
+{% endfor %}
+
+**Output:** {{ r.response.output[:500] }}{% if r.response.output|length > 500 %}...{% endif %}
+
+{% endfor %}
+{% endif %}

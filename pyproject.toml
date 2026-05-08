@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentrt"
+version = "0.1.0"
+description = "Adversarial red-team testing for AI agent systems"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "jinja2>=3.1",
+    "rich>=13",
+    "anthropic>=0.28",
+    "pyyaml>=6.0",
+    "langgraph>=1.0",
+    "langgraph-checkpoint-sqlite>=3.0",
+    "langchain-core>=0.2",
+    "aiosqlite>=0.20",
+    "fastapi>=0.111",
+    "uvicorn[standard]>=0.30",
+]
+
+[project.scripts]
+agentrt = "agentrt.cli.commands:app"
+
+[project.entry-points."agentrt.attacks"]
+# Built-in stub registered here for integration testing of both discovery paths.
+# Real built-ins self-register via @attack decorator when their modules are imported.
+a01-stub = "agentrt.attacks.stubs:A01StubPlugin"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agentrt*"]
+
+[tool.setuptools.package-data]
+agentrt = ["config/profiles/*.yaml"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

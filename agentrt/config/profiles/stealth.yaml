@@ -1,0 +1,9 @@
+attacks:
+  categories: ["A", "B"]
+execution:
+  mutation_count: 2
+  mutation_strategy: template
+  mutation_transforms: ["base64", "language_swap"]
+judge:
+  provider: anthropic
+  model: claude-sonnet-4-6
